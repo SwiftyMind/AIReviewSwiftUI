@@ -16,6 +16,11 @@ final class TaskViewModel: ObservableObject {
         tasks.append(Task(title: title))
     }
     
+    /// Toggles the completion status of the specified task in the tasks array.
+    ///
+    /// If the task is found by its unique identifier, its `isCompleted` property is switched between true and false.
+    ///
+    /// - Parameter task: The task whose completion status should be toggled.
     func toggleComplete(_ task: Task) {
         guard let index = tasks.firstIndex(where: { $0.id == task.id }) else { return }
         tasks[index].isCompleted.toggle()
