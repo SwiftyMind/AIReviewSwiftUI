@@ -20,4 +20,16 @@ final class TaskViewModel: ObservableObject {
         guard let index = tasks.firstIndex(where: { $0.id == task.id }) else { return }
         tasks[index].isCompleted.toggle()
     }
+    func removeTask(_ task: Task) {
+        guard let index = tasks.firstIndex(where: { $0.id == task.id }) else { return }
+        tasks.remove(at: index)
+    }
+    var completedTasks: Int {
+        tasks.filter { $0.isCompleted }.count
+    }
+
+    var overdueTasks: Int {
+        let now = Date()
+        return tasks.filter { !$0.isCompleted && ($0.dueDate ?? now) < now }.count
+    }
 }
