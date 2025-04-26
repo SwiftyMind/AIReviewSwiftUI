@@ -10,7 +10,8 @@ import Foundation
 
 final class TaskViewModel: ObservableObject {
     @Published var tasks: [Task] = []
-    
+    let url = URL(string: "https://dummyjson.com/products")!
+
     func addTask(title: String) {
         guard !title.isEmpty else { return }
         tasks.append(Task(title: title))
