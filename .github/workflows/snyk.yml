@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: snyk/actions/setup@v1
+      - uses: snyk/actions/setup@master
       - run: snyk auth ${{ secrets.SNYK_TOKEN }}
       - run: snyk test --all-projects
