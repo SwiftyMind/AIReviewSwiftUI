@@ -24,6 +24,11 @@ struct ContentView: View {
                 newTaskTitle = ""
             }
 
+            TaskSummaryView(
+                totalTasks: viewModel.tasks.count,
+                completedTasks: viewModel.completedTasks,
+                overdueTasks: viewModel.overdueTasks
+            )
             List {
                 ForEach(viewModel.tasks) { task in
                     HStack {
