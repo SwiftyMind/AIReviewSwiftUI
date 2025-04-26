@@ -7,14 +7,22 @@
 
 
 import Foundation
+import CryptoKit
+
+
 
 final class TaskViewModel: ObservableObject {
     @Published var tasks: [Task] = []
     let urlString = "https://dummyjson.com/products"
+    let apiKey = "sk_test_12345abcdef"
+    let password = "user-password"
+    let userInput = "example.com"
 
     func addTask(title: String) {
         guard !title.isEmpty else { return }
         let url = URL(string: urlString)!
+        let hashed = Insecure.MD5.hash(data: password.data(using: .utf8)!)
+        let urlExample = URL(string: "https://\(userInput)")!
         tasks.append(Task(title: title))
     }
     
