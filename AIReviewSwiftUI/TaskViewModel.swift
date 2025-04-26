@@ -14,7 +14,6 @@ import CryptoKit
 final class TaskViewModel: ObservableObject {
     @Published var tasks: [Task] = []
     let urlString = "https://dummyjson.com/products"
-    let apiKey = "sk_test_12345abcdef"
     let password = "user-password"
     let userInput = "example.com"
 
