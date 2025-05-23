@@ -35,6 +35,12 @@ struct ContentView: View {
                     }
                 }
             }
+            TaskSummaryView(
+                viewModel: viewModel, totalTasks: viewModel.tasks.count,
+                completedTasks: viewModel.completedTasks,
+                overdueTasks: viewModel.overdueTasks
+            )
+            .padding(.top)
 
             Text("Total: \(viewModel.tasks.count) • Completed: \(viewModel.tasks.filter { $0.isCompleted }.count)")
                 .padding(.top)
