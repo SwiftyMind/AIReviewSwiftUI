@@ -22,6 +22,8 @@ final class TaskViewModel: ObservableObject {
         tasks[index].isCompleted.toggle()
     }
 
+    
+
     var completedTasks: Int {
         tasks.filter { $0.isCompleted }.count
     }
